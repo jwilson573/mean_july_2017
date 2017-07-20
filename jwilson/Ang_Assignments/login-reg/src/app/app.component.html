@@ -1,0 +1,124 @@
+<div id='container'>
+  <h1>Registration</h1>
+  <div id='user_form'>
+    <h2>Account Information</h2>
+     <div> 
+      
+        <p *ngIf='submitted'>Thank you for registering {{newUser?.firstName}}! We have sent you a 
+          confirmation email at {{newUser?.email}}, and we will send all mail to {{newUser.address}}
+          <span *ngIf='user.unit != ""'>{{newUser?.unit}}</span>, {{newUser?.city}}, {{newUser?.state}}
+        </p>
+    </div> 
+    
+    <form id="form" class="topBefore" (submit)="mySubmit(); myForm.reset()" #myForm='ngForm'>
+      
+      
+      <input type='text' 
+        [(ngModel)]="user.firstName" 
+        name='firstName' 
+        placeholder='First Name' 
+        #firstName='ngModel' 
+        required
+        minlength= '2'
+        maxlength= '24'
+      />
+      <span *ngIf='firstName.errors && (firstName.errors.required && firstName.touched)'>- First Name is required -</span>
+      <span *ngIf='firstName.errors && firstName.errors.minlength'>- First Name must be at least {{firstName.errors.minlength.requiredLength}} characters -</span>
+
+      <input type='text' 
+        name='lastName' 
+        placeholder='Last Name' 
+        [(ngModel)]="user.lastName" 
+        #lastName='ngModel'  
+        required
+        
+        minlength= '2'
+        maxlength= '24'
+      />
+      <span *ngIf='lastName.errors && (lastName.errors.required && lastName.touched)'>- Last Name is required -</span>
+      <span *ngIf='lastName.errors && lastName.errors.minlength'>- Last Name must be at least {{lastName.errors.minlength.requiredLength}} characters -</span>
+
+      <input type='email' 
+        name='email' 
+        placeholder='Email' 
+        [(ngModel)]="user.email" 
+        #email='ngModel' 
+        required
+        pattern="^.+\@.+\..+$" 
+        minlength= '4'
+        maxlength= '24'
+      />
+      <span *ngIf='email.errors && (email.errors.required && email.touched)'>- Email is required -</span>
+      <span *ngIf='email.errors && email.errors.pattern'>- Email is invalid -</span>
+      
+      <input type='password' 
+        name='password' 
+        placeholder='Password' 
+        [(ngModel)]="user.password" 
+        #password='ngModel' 
+        required 
+        minlength= '8'
+        maxlength= '24'
+      />
+      <span *ngIf='password.errors && (password.errors.required && password.touched)'>- Password is required -</span>
+      <span *ngIf="password.errors && password.errors.minlength">
+				- Password must be at least {{ password.errors.minlength.requiredLength }} characters -
+			</span>
+      <input type='password' 
+        name='confirmPW' 
+        placeholder='Confirm Password'
+        required 
+        minlength= '8'
+        maxlength= '24'
+        [(ngModel)]='user.confirmPW'
+        #confirmPW='ngModel'
+      />
+      <span *ngIf='myForm.value.password != myForm.value.confirmPW'>- Passwords do not match -</span>
+      <input type='text' 
+        name='address' 
+        placeholder='Street Address' 
+        [(ngModel)]="user.address"
+        required 
+        minlength= '3'
+        maxlength= '40'
+        #address = 'ngModel'
+      />
+      <span *ngIf="address.errors && (address.errors.required && address.touched)">- Address is required -</span>
+      
+      <input type='text' 
+        name='unit' 
+        placeholder='Unit/Apt #' 
+        [(ngModel)]="user.unit"
+        #unit = 'ngModel'
+      />
+
+      <input type='text' 
+        name='city' 
+        placeholder='City' 
+        [(ngModel)]="user.city"
+        required 
+        minlength= '2'
+        #city = 'ngModel'
+      />
+      <span *ngIf="city.errors && (city.errors.required && city.touched)">- City is required -</span>
+			<span *ngIf="city.errors && city.errors.minlength">- City must be at least {{ city.errors.minlength.requiredLength }} characters -</span>
+      
+      
+      <select [(ngModel)]="user.state" name="state" class = 'st' >
+        <option value="" disabled>--Select State--</option>
+        <option *ngFor="let state of array" [ngValue]="state">
+          {{state}}
+        </option>
+      </select>
+
+      <div id='lucky'>
+        <label>I'm feeling lucky:</label>
+        <input type='radio' name='lucky' value='Yes' [(ngModel)]="user.lucky" checked>Yes
+        <input type='radio' name='lucky' value='No'[(ngModel)]="user.lucky">No
+      </div>
+     
+      <input [disabled]='!myForm.valid' class='rgstr' type='submit' value='Submit'>
+      
+      </form>
+    </div>
+</div>
