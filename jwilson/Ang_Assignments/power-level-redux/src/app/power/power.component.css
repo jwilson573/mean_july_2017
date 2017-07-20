@@ -1,0 +1,35 @@
+input{
+    display: block;
+    margin-bottom: 75px;
+}
+
+#outer{
+    display: block;
+    overflow: visible;
+}
+
+h3{
+    display: block;
+    
+    width: 150px;
+    margin-left: 5px;
+    margin-top: -33px;
+    background: white;
+    overflow: visible;
+    padding: 5px;
+}
+h5{
+    display: inline-block;
+}
+
+.powerDisplay{
+    border: 1px solid black;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    
+    overflow: visible;
+    background: white;
+    margin: 30px 15px 20px 0px;
+    padding: 15px;
+}

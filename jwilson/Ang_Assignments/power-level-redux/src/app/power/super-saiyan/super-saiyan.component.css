@@ -1,0 +1,25 @@
+
+.powerDisplay{
+    border: 1px solid black;
+    display: inline-block;
+    width: 250px;
+    height: 100px;
+    text-align: center;
+    overflow: visible;
+    background: white;
+    margin: 0px 15px 20px 0px;
+
+}
+h4{
+    display: block;
+    margin-right: 100px;
+    width: 105px;
+    margin-left: 5px;
+    margin-top: -10px;
+    background: white;
+    overflow: visible;
+}
+
+#outer{
+    display: inline-block;
+}

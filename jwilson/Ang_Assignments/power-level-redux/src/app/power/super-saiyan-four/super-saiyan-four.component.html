@@ -1,0 +1,10 @@
+
+<div id='outer'>
+  <div class='powerDisplay'>
+    <h4>Super Saiyan 4</h4>
+    <p>Power Level: {{basePower}}</p>
+    <p *ngIf='basePower > 9000 && basePower < 20000'>Over 9000!</p>
+    <p *ngIf='basePower >= 20000 && basePower < 50000'>Superlative!</p>
+    <p *ngIf='basePower == 50000'>The One!</p>
+  </div>
+</div>

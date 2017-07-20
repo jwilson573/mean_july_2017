@@ -1,0 +1,22 @@
+<div id='outer'>
+  <div class='powerDisplay'>
+     <img src='../../assets/img/goku.png' alt='goku.png' [ngStyle]="{'width':'125px', 'display':'inline-block', 'float':'right', 'vertical-align':'top'}"> 
+    <h3>Power Component </h3>
+
+    <h5>Base Power Level:</h5>
+    <input type='number' min='1' max='100' [(ngModel)]='basePower'>
+
+
+    <app-human [basePower]='basePower'></app-human>
+    <app-saiyan [basePower]='basePower'></app-saiyan>
+    <app-super-saiyan [basePower]='basePower'></app-super-saiyan>
+    <div id='bottomRow'>
+      <app-super-saiyan-two [basePower]='basePower'></app-super-saiyan-two>
+      <app-super-saiyan-three [basePower]='basePower'></app-super-saiyan-three>
+      <app-super-saiyan-four [basePower]='basePower'></app-super-saiyan-four>
+    </div>
+  </div>
+</div>
+
+
+
