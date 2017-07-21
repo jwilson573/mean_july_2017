@@ -1,0 +1,14 @@
+<div>
+
+  <form (submit)='onSubmit(newUser)'>
+    <div>
+      <label>GitHub Username:</label>
+    <input type='text' name='username'[(ngModel)]="newUser.username"> 
+    </div>
+
+    <input type='submit' value='submit'>
+  </form>
+
+</div>
+<p> Your GitHub score is {{ score }}.</p>
+<router-outlet></router-outlet>
